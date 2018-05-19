@@ -4,7 +4,7 @@
 
 # Getting Started
 
-```
+```typescript
 import { Provider } from "scene-switcher";
 
 const App = () => (
@@ -13,9 +13,19 @@ const App = () => (
         <Scene name="second-view" component={SecondView} path="/second-view/:text">
     </Provider>
 );
+
 ...
 
 import { SceneComponentProps } from "scene-switcher";
+
+const FirstView: React.SFC<SceneComponentProps<{}>> = (props) => (
+    <div>
+        first page
+        <Link to="/second-view/hello-world">Go to second view</Link>
+    </div>
+);
+
+...
 
 interface Props {
     text: string;
