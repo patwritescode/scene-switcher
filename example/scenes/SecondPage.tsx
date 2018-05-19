@@ -1,8 +1,12 @@
 import React from "react";
+import { SceneComponentProps } from "../..";
 
-const SecondPage: React.SFC = () => (
+interface Props {
+    text: string;
+}
+const SecondPage: React.SFC<SceneComponentProps<Props>> = ({ params }) => (
     <div>
-        Second page
+        Second page: {params.text}
     </div>
 );
 

@@ -7,8 +7,8 @@ import SecondPage from "./scenes/SecondPage";
 
 const App = () => (
     <Provider>
-        <Scene exact path="/" component={<FirstPage/>} name="first-page"/>
-        <Scene path="/two" component={<SecondPage/>} name="second-page"/>
+        <Scene exact path="/" component={FirstPage} name="first-page"/>
+        <Scene path="/two/:text" component={SecondPage} name="second-page"/>
     </Provider>
 );
 

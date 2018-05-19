@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "../..";
+import { Link, SceneComponentProps } from "../..";
 
-const FirstPage: React.SFC = () => (
-    <div>
-        first page
-        <Link to="/two">go to two</Link>
-    </div>
-);
+const FirstPage: React.SFC<SceneComponentProps<{}>> = (props) => {
+    return (
+        <div>
+            first page is at {props.currentPath}
+            <div>
+                <Link to="/two/hello">go to two</Link>
+            </div>
+        </div>
+    );
+}
 
 export default FirstPage;
