@@ -52,3 +52,4 @@ You can put your `<Scene/>` components anywhere and render them conditionally in
 - `Provider` is the top level state container using the new react v16.3 context api
 - `Context` is the actual react context object that allows you to hook into the state stored for the router
 - `Redirect` will redirect on mount to the provided path.
+- `HistoryManager` allows you to create your own history storage and handlers to hook into the `scene-switcher` events. The default is a `MemoryHistoryManager` which is not tied to any browser state.

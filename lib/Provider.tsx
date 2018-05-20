@@ -1,10 +1,22 @@
 import React from "react";
 import Context from "./Context";
+import MemoryHistoryManager from "./MemoryHistoryManager";
+import HistoryManager from "./HistoryManager";
 
 export interface State {
     currentPath: string;
 }
-class Provider extends React.Component<{}, State> {
+export interface Props {
+    history?: MemoryHistoryManager;
+}
+class Provider extends React.Component<Props, State> {
+    private readonly history: HistoryManager;
+    constructor(props) {
+        super(props);
+        this.history = props.history
+            ? props.history
+            : new MemoryHistoryManager();
+    }
     state = {
         currentPath: "/"
     }
