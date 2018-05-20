@@ -2,7 +2,7 @@ import React, { Component, StatelessComponent, Attributes } from "react";
 import Context from "./Context";
 import Path from "path-parser";
 
-interface Props {
+export interface Props {
     name: string;
     path: string;
     component: StatelessComponent;

@@ -1,7 +1,7 @@
 import React from "react";
 import Context from "./Context";
 
-interface State {
+export interface State {
     currentPath: string;
 }
 class Provider extends React.Component<{}, State> {

@@ -1,7 +1,7 @@
 import React from "react";
 import Context from "./Context";
 
-interface Props {
+export interface Props {
     to: string;
     className?: string;
 }

@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import React, { createContext } from "react";
 
-interface Context {
+export interface Context {
     currentPath: string;
     push: (currentPath: string) => void;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { SceneComponentProps } from "../..";
 
-interface Props {
+export interface Props {
     text: string;
 }
 const SecondPage: React.SFC<SceneComponentProps<Props>> = ({ params }) => (
