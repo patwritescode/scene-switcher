@@ -6,6 +6,7 @@
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "declaration": true,
+        "declarationDir": "./build",
         "outDir": "./build",
         "lib": [
             "es2015",
