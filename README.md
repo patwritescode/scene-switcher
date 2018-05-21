@@ -1,5 +1,7 @@
 # scene-switcher
 
+*this repo is a work in progress*
+
 `scene-switcher` is a declarative view router for React that allows you to easily handle swapping between views based on routes that aren't tied to the browser. It can be used along side (or without) a router such as `react-router` to serve as a manager for non-url driven view changes such as modals, wizards, etc.
 
 This package was built with TypeScript so types are included.
