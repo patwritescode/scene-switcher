@@ -1,11 +1,11 @@
-import React, { Component, StatelessComponent, Attributes } from "react";
+import React, { Component, StatelessComponent, Attributes, ComponentClass } from "react";
 import Context from "./Context";
 import Path from "path-parser";
 
 export interface Props {
     name: string;
     path: string;
-    component: StatelessComponent;
+    component: StatelessComponent | ComponentClass;
     exact?: boolean;
 }
 

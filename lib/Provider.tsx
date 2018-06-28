@@ -8,6 +8,7 @@ export interface State {
 }
 export interface Props {
     history?: MemoryHistoryManager;
+    initialPath?: string;
 }
 class Provider extends React.Component<Props, State> {
     private readonly history: HistoryManager;
@@ -18,7 +19,7 @@ class Provider extends React.Component<Props, State> {
             : new MemoryHistoryManager();
     }
     state = {
-        currentPath: "/"
+        currentPath: this.props.initialPath || "/"
     }
     push = (currentPath: string) => this.setState({ currentPath });
     render() {
