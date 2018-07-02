@@ -21,7 +21,13 @@ class Provider extends React.Component<Props, State> {
     state = {
         currentPath: this.props.initialPath || "/"
     }
-    push = (currentPath: string) => this.setState({ currentPath });
+    push = (currentPath: string) => {
+        this.history.onPush(currentPath);
+        this.setState({ currentPath });
+    }
+    goBack = () => {
+        this.setState({ currentPath: this.history.getLastPath() });
+    }
     render() {
         const { currentPath } = this.state;
         const { children } = this.props;

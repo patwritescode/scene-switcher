@@ -5,6 +5,9 @@ class MemoryHistoryManager extends HistoryManager {
     onPush(path: string): void {
         this._history.push(path);
     }
+    getLastPath():string {
+        return this._history[this._history.length - 2];
+    }
 }
 
 export default MemoryHistoryManager;
