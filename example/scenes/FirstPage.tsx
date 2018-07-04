@@ -8,7 +8,6 @@ const FirstPage: React.SFC<SceneComponentProps<{}>> = (props) => {
             first page is at {props.currentPath}
             <div>
                 <Link to="/two/hello">go to two</Link>
-                <Redirect to="/two/hello"/>
             </div>
         </div>
     );

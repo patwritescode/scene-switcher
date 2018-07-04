@@ -1,12 +1,36 @@
 import HistoryManager from "./HistoryManager";
 
 class MemoryHistoryManager extends HistoryManager {
-    private _history: string[] = [];
-    onPush(path: string): void {
-        this._history.push(path);
+    protected _history: string[] = [];
+    protected _currentIndex: number = 0;
+    constructor(initialPath?: string) {
+        super(initialPath);
+        this._history = [this._initialPath];
     }
-    getLastPath():string {
-        return this._history[this._history.length - 2];
+    onPush(path: string): void {
+        const history = this._history.slice(this._currentIndex, this._history.length);
+        history.push(path);
+        this._history = history;
+        this._currentIndex = this._history.length - 1;
+    }
+    onBack(): void {
+        this.canGoBack()
+            ? this._currentIndex--
+            : this._currentIndex;
+    }
+    onForward(): void {
+        this.canGoForward()
+            ? this._currentIndex++
+            : this._currentIndex;
+    }
+    canGoForward(): boolean {
+        return this._currentIndex !== this._history.length - 1;
+    }
+    canGoBack(): boolean {
+        return this._currentIndex > 0;
+    }
+    currentPath(): string {
+        return this._history[this._currentIndex];
     }
 }
 

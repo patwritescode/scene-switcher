@@ -1,38 +1,40 @@
 import React from "react";
 import Context from "./Context";
 import MemoryHistoryManager from "./MemoryHistoryManager";
-import HistoryManager from "./HistoryManager";
+import HistoryManager, { HistoryState } from "./HistoryManager";
 
-export interface State {
-    currentPath: string;
-}
 export interface Props {
-    history?: MemoryHistoryManager;
-    initialPath?: string;
+    history: HistoryManager;
 }
-class Provider extends React.Component<Props, State> {
-    private readonly history: HistoryManager;
-    constructor(props) {
-        super(props);
-        this.history = props.history
-            ? props.history
-            : new MemoryHistoryManager();
-    }
-    state = {
-        currentPath: this.props.initialPath || "/"
-    }
+class Provider extends React.Component<Props, HistoryState> {
+    state = this.props.history.getState();
     push = (currentPath: string) => {
-        this.history.onPush(currentPath);
-        this.setState({ currentPath });
+        const { history } = this.props;
+        history.onPush(currentPath);
+        this.setState(history.getState());
     }
     goBack = () => {
-        this.setState({ currentPath: this.history.getLastPath() });
+        const { history } = this.props;
+        history.onBack();
+        this.setState(history.getState());
+    }
+    goForward = () => {
+        const { history } = this.props;
+        history.onForward();
+        this.setState(history.getState());
     }
     render() {
-        const { currentPath } = this.state;
+        const { currentPath, canGoBack, canGoForward } = this.state;
         const { children } = this.props;
         return (
-            <Context.Provider value={{currentPath, push: this.push}}>
+            <Context.Provider value={{
+                currentPath,
+                canGoBack,
+                canGoForward,
+                push: this.push,
+                goBack: this.goBack,
+                goForward: this.goForward,
+            }}>
                 { children }
             </Context.Provider>
         );
