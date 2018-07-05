@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, SceneComponentProps } from "../..";
+import { LinkButton, SceneComponentProps } from "../..";
 import Redirect from "../../lib/Redirect";
 
 const FirstPage: React.SFC<SceneComponentProps<{}>> = (props) => {
@@ -7,7 +7,7 @@ const FirstPage: React.SFC<SceneComponentProps<{}>> = (props) => {
         <div>
             first page is at {props.currentPath}
             <div>
-                <Link to="/two/hello">go to two</Link>
+                <LinkButton to="/two/hello">go to two</LinkButton>
             </div>
         </div>
     );

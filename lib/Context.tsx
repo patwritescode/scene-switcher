@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 
-export interface Context {
+export interface ContextState {
     currentPath: string;
     push: (currentPath: string) => void;
     goBack: () => void;
@@ -8,4 +8,4 @@ export interface Context {
     canGoBack: boolean;
     canGoForward: boolean;
 }
-export default createContext<Context>(null);
+export default createContext<ContextState>(null);

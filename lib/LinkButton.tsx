@@ -5,17 +5,17 @@ export interface Props {
     to: string;
     className?: string;
 }
-const Link: React.SFC<Props> = ({ to, className, children }) => (
+const LinkButton: React.SFC<Props> = ({ to, className, children }) => (
     <Context.Consumer>
         {({push}) => (
-            <a
+            <button
                 className={className}
                 onClick={() => push(to)}
             >
             { children }
-            </a>
+            </button>
         )}
     </Context.Consumer>
 );
 
-export default Link;
+export default LinkButton;

@@ -8,10 +8,10 @@ class MemoryHistoryManager extends HistoryManager {
         this._history = [this._initialPath];
     }
     onPush(path: string): void {
-        const history = this._history.slice(this._currentIndex, this._history.length);
+        const history = this._history.slice(0, this._currentIndex);
         history.push(path);
         this._history = history;
-        this._currentIndex = this._history.length - 1;
+        this._currentIndex++;
     }
     onBack(): void {
         this.canGoBack()
