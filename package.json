@@ -1,6 +1,6 @@
 {
   "name": "scene-switcher",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {

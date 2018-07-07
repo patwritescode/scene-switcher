@@ -2,3 +2,4 @@ lib/
 dist/
 .cache/
 example/
+index.tsx
